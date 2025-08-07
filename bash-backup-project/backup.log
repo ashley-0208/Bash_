@@ -1,2 +1,5 @@
 [2025-08=07 14:53:44] [DONE] Backup successfully created: backups/backup_2025-08=07.tar.gz
 [2025-08=07 14:56:12] [DONE] Backup successfully created: backups/backup_2025-08=07.tar.gz
+[2025-08=07 15:26:06] [DONE] Backup successfully created: backups/backup_2025-08=07.tar.gz
+[2025-08=07 15:26:13] [ERROR] Backup failed. please check permissions.
+[2025-08=07 15:29:20] [ERROR] Backup failed. please check permissions.

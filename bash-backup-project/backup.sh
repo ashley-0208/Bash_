@@ -1,16 +1,30 @@
 #!/bin/bash
 
-SOURCE_DIR="project"
 BACKUP_DIR="backups"
 LOG_FILE="backup.log"
 DATE=$(date +%Y-%m=%d)
 TIME=$(date +%H:%M:%S)
-FILENAME=backup_$DATE.tar.gz
 
+# log function
 log() {
     local MSG="$1"
     echo "[$DATE $TIME] $MSG" | tee -a "$LOG_FILE"
 }
+
+# source path input
+read -p "Enter the path of the dir or file you want to backup: " SOURCE_PATH
+SOURCE_PATH=$(echo "$SOURCE_PATH" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+# chick if sourch exists
+if [ ! -e "$SOURCE_PATH" ];
+then
+    log "[ERROR]  the path '$SOURCE_PATH' does not exist."
+    exit 1
+fi
+
+# extract name for use in the output name
+NAME=$(basename "$SOURCE_PATH")
+FILENAME="backup_${NAME}_$DATE.tar.gz"
 
 mkdir -p "$BACKUP_DIR"
 if [ $? -ne 0 ]; 
@@ -20,14 +34,8 @@ then
     exit 1
 fi
 
-if [ ! -d "$SOURCE_DIR" ];
-then
-    LOG "[ERROR] Source directory '$SOURCE_DIR' does not exist."
-    # echo "source direcrory '$SOURCE_DIR' do not exist!"
-    exit 1
-fi
-
-tar -czf "$BACKUP_DIR/$FILENAME" "$SOURCE_DIR"
+# create backup file
+tar -czf "$BACKUP_DIR/$FILENAME" "$SOURCE_PATH"
 tar_status=$?
 
 if [ $tar_status -ne 0 ];
