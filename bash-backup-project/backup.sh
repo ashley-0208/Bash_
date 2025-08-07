@@ -2,19 +2,28 @@
 
 SOURCE_DIR="project"
 BACKUP_DIR="backups"
+LOG_FILE="backup.log"
 DATE=$(date +%Y-%m=%d)
+TIME=$(date +%H:%M:%S)
 FILENAME=backup_$DATE.tar.gz
+
+log() {
+    local MSG="$1"
+    echo "[$DATE $TIME] $MSG" | tee -a "$LOG_FILE"
+}
 
 mkdir -p "$BACKUP_DIR"
 if [ $? -ne 0 ]; 
 then
-    echo "Error creating backup folder: $BACKUP_DIR"
+    log "[ERROR] Cannot create backup directory: $BACKUP_DIR"
+    # echo "Error creating backup folder: $BACKUP_DIR"
     exit 1
 fi
 
 if [ ! -d "$SOURCE_DIR" ];
 then
-    echo "source direcrory '$SOURCE_DIR' do not exist!"
+    LOG "[ERROR] Source directory '$SOURCE_DIR' does not exist."
+    # echo "source direcrory '$SOURCE_DIR' do not exist!"
     exit 1
 fi
 
@@ -23,11 +32,13 @@ tar_status=$?
 
 if [ $tar_status -ne 0 ];
 then
-    echo 'Error in taking backup. Please check the paths and permissions.'
+    log "[ERROR] Backup failed. please check permissions."
+    # echo 'Error in taking backup. Please check the paths and permissions.'
     exit 1 
 fi
 
 if [ $? -eq 0 ];
-then 
-    echo "The backup was successfully taken: $BACKUP_DIR/$FILENAME"
+then
+    log "[DONE] Backup successfully created: $BACKUP_DIR/$FILENAME"
+    # echo "The backup was successfully taken: $BACKUP_DIR/$FILENAME"
 fi
