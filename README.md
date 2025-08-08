@@ -8,10 +8,9 @@ This repo is a space to explore **Bash scripting** through small, practical proj
 
 ## Projects
 
-- **Scripts Collection**: A set of Bash scripts for tasks like file manipulation, system monitoring, and automation.
-- *(More projects to be added as you build them!)*
+- **Scripts Collection**: A set of Bash scripts for tasks like TODO list, Backuping files.
+- *(and More projects to be added as you build them!)*
 
-Each script or project has its own folder with code and a `README.md` for usage details.
 
 ## Getting Started
 
@@ -37,7 +36,6 @@ Each script or project has its own folder with code and a `README.md` for usage 
    ./script.sh
    ```
 
-Check each project's `README.md` for specific instructions.
 
 ## Contributing
 
@@ -50,8 +48,5 @@ Got a cool Bash script or idea? Contributions are welcome! 😊
 
 Please include a `README.md` in your project folder explaining what your script does.
 
-## License
-
-MIT License
 
 Happy scripting! 🚀
