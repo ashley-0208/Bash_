@@ -8,8 +8,12 @@ This repo is a space to explore **Bash scripting** through small, practical proj
 
 ## Projects
 
-- **Scripts Collection**: A set of Bash scripts for tasks like TODO list, Backuping files.
-- *(and More projects to be added as you build them!)*
+- **Scripts Collection**: A set of Bash scripts for tasks like:
+- TODO list
+- Drive monitoring
+- Backuping files
+- File analyzer
+- *(and More projects to be added in time!)*
 
 
 ## Getting Started
