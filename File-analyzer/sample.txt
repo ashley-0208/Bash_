@@ -1,4 +1,4 @@
 Bash + Python text analyzer!
 this is a sample file for text analyzing practice.
 duplicate text, word word word, some signs?!^
-سلام دنیا، سلام وی اس کد، سلام پایتون
+اضافه کردن متن فارسی برای تست!
